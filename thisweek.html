@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>This Week's Tasks - Task Manager</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3176/3176363.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="week-wrapper">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h1><i class="fas fa-tasks"></i> Task Manager</h1>
+    </div>
+
+    <div class="sidebar-content">
+      <!-- Search Box -->
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search tasks..." />
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-section">
+        <h2>Filters</h2>
+        <ul class="filter-list">
+          <li><a href="index.html" class="filter-link"><i class="fas fa-list"></i> All Tasks</a></li>
+          <li><a href="pending.html" class="filter-link"><i class="fas fa-clock"></i> Pending</a></li>
+          <li><a href="completed.html" class="filter-link active"><i class="fas fa-check-circle"></i> Completed</a></li>
+          <li><a href="today.html" class="filter-link"><i class="fas fa-calendar-day"></i> Today</a></li>
+          <li><a href="thisweek.html" class="filter-link"><i class="fas fa-calendar-week"></i> This Week</a></li>
+         </ul>
+      </div>
+      <div class="stats-section">
+        <h2>Statistics</h2>
+        <div class="stat-card">
+          <h3>Total Tasks</h3>
+          <div class="stat-value">12</div>
+        </div>
+        <div class="stat-card">
+          <h3>Completed</h3>
+          <div class="stat-value text-green-600">5</div>
+        </div>
+        <div class="stat-card">
+          <h3>Pending</h3>
+          <div class="stat-value text-yellow-600">7</div>
+        </div>
+        <div class="stat-card">
+          <h3>Due Today</h3>
+          <div class="stat-value text-red-600">3</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+      <!-- Main Content -->
+  <main class="main-content">
+    <div class="header">
+      <h1>This Week Tasks</h1>
+      <div class="profile-component">
+        <div class="profile-header">
+          <div class="profile-avatar">
+            <img src="https://d12d6l12s3d372.cloudfront.net/prabhas_b05186fa7a.jpeg" alt="Profile" />
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">Kurumala Mohan Vamsi</div>
+            <div class="profile-role">Project Manager</div>
+          </div>
+          <div class="profile-actions">
+            <!-- Notification -->
+            <div class="notification-container">
+              <button class="notification-btn" id="notificationBtn">
+                <i class="fas fa-bell"></i>
+                <span class="notification-count">3</span>
+              </button>
+              <div class="notification-dropdown" id="notificationDropdown">
+                <div class="notification-header">
+                  <h3>Notifications</h3>
+                  <div class="clear-all" id="clearAllNotifications">Clear All</div>
+                </div>
+                <ul class="notification-list" id="notificationList">
+                  <li class="notification-item unread">
+                    <div class="notification-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="notification-content">
+                      <div class="notification-title">High Priority Task</div>
+                      <div class="notification-text">Complete project proposal is due today</div>
+                      <div class="notification-time">10 minutes ago</div>
+                    </div>
+                  </li>
+                  <li class="notification-item unread">
+                    <div class="notification-icon"><i class="fas fa-users"></i></div>
+                    <div class="notification-content">
+                      <div class="notification-title">Team Update</div>
+                      <div class="notification-text">Alex assigned you a new task</div>
+                      <div class="notification-time">30 minutes ago</div>
+                    </div>
+                  </li>
+                  <li class="notification-item unread">
+                    <div class="notification-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="notification-content">
+                      <div class="notification-title">Meeting Reminder</div>
+                      <div class="notification-text">Client presentation in 1 hour</div>
+                      <div class="notification-time">1 hour ago</div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="notification-footer">
+                  <a href="#">View All Notifications</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profile Dropdown -->
+            <div class="profile-dropdown" id="profileDropdown">
+              <ul>
+                <li><ion-icon name="person-outline"></ion-icon> My Profile</li>
+                <li><ion-icon name="analytics-outline"></ion-icon> Analytics</li>
+                <li><ion-icon name="settings-outline"></ion-icon> Settings</li>
+                <li><ion-icon name="help-circle-outline"></ion-icon> Help</li>
+                <li><ion-icon name="log-out-outline" style="color: red;"></ion-icon> Logout</li>
+              </ul>
+            </div>
+            <button class="profile-btn settings"><i class="fas fa-cog"></i></button>
+            <button class="profile-btn dropdown-toggle" id="profileToggleBtn"><i class="fas fa-chevron-down"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+ 
+    <!-- Weekly Task List -->
+    <ul class="week-task-list">
+      <li class="week-task">
+        <div>
+          <h3 class="week-task-title">Prepare presentation slides</h3>
+          <p class="week-task-time">Due: Mon, 10:00 AM</p>
+        </div>
+        <div class="week-task-actions">
+          <button><i class="fas fa-edit week-edit"></i></button>
+          <button><i class="fas fa-trash week-delete"></i></button>
+        </div>
+      </li>
+
+      <li class="week-task">
+        <div>
+          <h3 class="week-task-title">Conduct client review</h3>
+          <p class="week-task-time">Due: Wed, 1:30 PM</p>
+        </div>
+        <div class="week-task-actions">
+          <button><i class="fas fa-edit week-edit"></i></button>
+          <button><i class="fas fa-trash week-delete"></i></button>
+        </div>
+      </li>
+
+      <li class="week-task">
+        <div>
+          <h3 class="week-task-title">Deploy backend updates</h3>
+          <p class="week-task-time">Due: Fri, 4:00 PM</p>
+        </div>
+        <div class="week-task-actions">
+          <button><i class="fas fa-edit week-edit"></i></button>
+          <button><i class="fas fa-trash week-delete"></i></button>
+        </div>
+      </li>
+    </ul>
+  </main>
+
+  <script>
+    document.getElementById("weekToggle").addEventListener("click", () => {
+      document.getElementById("weekDropdown").classList.toggle("hidden");
+    });
+  </script>
+
+</body>
+</html>

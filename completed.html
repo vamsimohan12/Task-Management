@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Completed Tasks - Task Manager</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3176/3176363.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h1><i class="fas fa-tasks"></i> Task Manager</h1>
+    </div>
+
+    <div class="sidebar-content">
+      <!-- Search Box -->
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search tasks..." />
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-section">
+        <h2>Filters</h2>
+        <ul class="filter-list">
+          <li><a href="index.html" class="filter-link"><i class="fas fa-list"></i> All Tasks</a></li>
+          <li><a href="pending.html" class="filter-link"><i class="fas fa-clock"></i> Pending</a></li>
+          <li><a href="completed.html" class="filter-link active"><i class="fas fa-check-circle"></i> Completed</a></li>
+          <li><a href="today.html" class="filter-link"><i class="fas fa-calendar-day"></i> Today</a></li>
+          <li><a href="thisweek.html" class="filter-link"><i class="fas fa-calendar-week"></i> This Week</a></li>
+         </ul>
+      </div>
+
+      <!-- Statistics -->
+      <div class="stats-section">
+        <h2>Statistics</h2>
+        <div class="stat-card">
+          <h3>Total Tasks</h3>
+          <div class="stat-value">12</div>
+        </div>
+        <div class="stat-card">
+          <h3>Completed</h3>
+          <div class="stat-value text-green-600">5</div>
+        </div>
+        <div class="stat-card">
+          <h3>Pending</h3>
+          <div class="stat-value text-yellow-600">7</div>
+        </div>
+        <div class="stat-card">
+          <h3>Due Today</h3>
+          <div class="stat-value text-red-600">3</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="header">
+      <h1>Completed Tasks</h1>
+      <div class="profile-component">
+        <div class="profile-header">
+          <div class="profile-avatar">
+            <img src="https://d12d6l12s3d372.cloudfront.net/prabhas_b05186fa7a.jpeg" alt="Profile" />
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">Kurumala Mohan Vamsi</div>
+            <div class="profile-role">Project Manager</div>
+          </div>
+          <div class="profile-actions">
+            <!-- Notification -->
+            <div class="notification-container">
+              <button class="notification-btn" id="notificationBtn">
+                <i class="fas fa-bell"></i>
+                <span class="notification-count">3</span>
+              </button>
+              <div class="notification-dropdown" id="notificationDropdown">
+                <div class="notification-header">
+                  <h3>Notifications</h3>
+                  <div class="clear-all" id="clearAllNotifications">Clear All</div>
+                </div>
+                <ul class="notification-list" id="notificationList">
+                  <li class="notification-item unread">
+                    <div class="notification-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="notification-content">
+                      <div class="notification-title">High Priority Task</div>
+                      <div class="notification-text">Complete project proposal is due today</div>
+                      <div class="notification-time">10 minutes ago</div>
+                    </div>
+                  </li>
+                  <li class="notification-item unread">
+                    <div class="notification-icon"><i class="fas fa-users"></i></div>
+                    <div class="notification-content">
+                      <div class="notification-title">Team Update</div>
+                      <div class="notification-text">Alex assigned you a new task</div>
+                      <div class="notification-time">30 minutes ago</div>
+                    </div>
+                  </li>
+                  <li class="notification-item unread">
+                    <div class="notification-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="notification-content">
+                      <div class="notification-title">Meeting Reminder</div>
+                      <div class="notification-text">Client presentation in 1 hour</div>
+                      <div class="notification-time">1 hour ago</div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="notification-footer">
+                  <a href="#">View All Notifications</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profile Dropdown -->
+            <div class="profile-dropdown" id="profileDropdown">
+              <ul>
+                <li><ion-icon name="person-outline"></ion-icon> My Profile</li>
+                <li><ion-icon name="analytics-outline"></ion-icon> Analytics</li>
+                <li><ion-icon name="settings-outline"></ion-icon> Settings</li>
+                <li><ion-icon name="help-circle-outline"></ion-icon> Help</li>
+                <li><ion-icon name="log-out-outline" style="color: red;"></ion-icon> Logout</li>
+              </ul>
+            </div>
+            <button class="profile-btn settings"><i class="fas fa-cog"></i></button>
+            <button class="profile-btn dropdown-toggle" id="profileToggleBtn"><i class="fas fa-chevron-down"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Completed Task List -->
+    <div class="task-list">
+      <div class="list-header">
+        <h2 class="list-title"><i class="fas fa-check-circle"></i> Completed Tasks <span class="task-count">5</span></h2>
+      </div>
+
+      <ul class="task-items">
+        <li class="task-item medium-priority completed">
+          <div class="task-checkbox checked"><i class="fas fa-check"></i></div>
+          <div class="task-content">
+            <div class="task-title">Completed Task 1</div>
+            <div class="task-due">Due: Oct 10, 2025</div>
+          </div>
+          <div class="task-actions">
+            <button class="task-btn delete"><i class="fas fa-trash"></i></button>
+          </div>
+        </li>
+
+        <li class="task-item low-priority completed">
+          <div class="task-checkbox checked"><i class="fas fa-check"></i></div>
+          <div class="task-content">
+            <div class="task-title">Completed Task 2</div>
+            <div class="task-due">Due: Oct 12, 2025</div>
+          </div>
+          <div class="task-actions">
+            <button class="task-btn delete"><i class="fas fa-trash"></i></button>
+          </div>
+        </li>
+
+        <li class="task-item high-priority completed">
+          <div class="task-checkbox checked"><i class="fas fa-check"></i></div>
+          <div class="task-content">
+            <div class="task-title">Completed Task 3</div>
+            <div class="task-due">Due: Oct 15, 2025</div>
+          </div>
+          <div class="task-actions">
+            <button class="task-btn delete"><i class="fas fa-trash"></i></button>
+          </div>
+        </li>
+
+        <li class="task-item medium-priority completed">
+          <div class="task-checkbox checked"><i class="fas fa-check"></i></div>
+          <div class="task-content">
+            <div class="task-title">Completed Task 4</div>
+            <div class="task-due">Due: Oct 18, 2025</div>
+          </div>
+          <div class="task-actions">
+            <button class="task-btn delete"><i class="fas fa-trash"></i></button>
+          </div>
+        </li>
+
+        <li class="task-item low-priority completed">
+          <div class="task-checkbox checked"><i class="fas fa-check"></i></div>
+          <div class="task-content">
+            <div class="task-title">Completed Task 5</div>
+            <div class="task-due">Due: Oct 20, 2025</div>
+          </div>
+          <div class="task-actions">
+            <button class="task-btn delete"><i class="fas fa-trash"></i></button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Optional Script for Interactions -->
+  <script>
+    // Toggle notification dropdown
+    document.getElementById('notificationBtn').addEventListener('click', () => {
+      document.getElementById('notificationDropdown').classList.toggle('active');
+    });
+
+    // Toggle profile dropdown
+    document.getElementById('profileToggleBtn').addEventListener('click', () => {
+      document.getElementById('profileDropdown').classList.toggle('active');
+    });
+
+    // Clear all notifications
+    document.getElementById('clearAllNotifications').addEventListener('click', () => {
+      const list = document.getElementById('notificationList');
+      list.innerHTML = '<li style="padding:1rem;">No new notifications.</li>';
+      document.querySelector('.notification-count').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
